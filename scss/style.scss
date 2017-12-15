@@ -1,0 +1,217 @@
+/* All common stylesheet codes should come here */
+
+@import "global";
+body {
+    @extend .scrollbar;
+    #wrapper {
+        @extend .relative-box;
+        @include transition(all 0.35s ease);
+    }
+    &.active {
+        overflow: hidden;
+        #wrapper {
+            overflow-x: hidden;
+            margin-right: 270px;
+            margin-left: -270px;
+            header {
+                left: 0;
+                @include sm-up {
+                    left: -270px;
+                }
+            }
+        }
+    }
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background: rgba($color-base, 0);
+    @include transition(all 0.35s ease);
+    @include sm-up {
+        position: fixed;
+    }
+    &.scrollFixed {
+        background-color: $color-base;
+    }
+    #navigation-toggle {
+        display: inline-block;
+        float: right;
+        margin: 3px 0;
+        padding: 5px 0px 5px 5px;
+        color: $color-white;
+        font-size: 1rem;
+        border: 1px solid rgba($color-white, 0);
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        @include xs-up {
+            margin: 3px 15px;
+            padding: 5px 10px;
+            border-color: rgba($color-white, 0.75);
+        }
+        @include lg-up {
+            display: none;
+        }
+        i {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    }
+    .logo {
+        width: auto;
+        float: left;
+        @include xs-up {
+            width: 25%;
+        }
+        a {
+            display: inline-block;
+            width: 140px;
+            min-height: 60px;
+            padding: 10px 0;
+            @include lg-up {
+                min-height: 80px;
+                padding: 20px 0;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .navigation {
+        @extend .relative-box;
+        width: auto;
+        @include xs-up {
+            width: 70%;
+        }
+        @include lg-up {
+            min-height: 80px;
+            padding: 20px 0;
+        }
+        float: right;
+        min-height: 60px;
+        padding: 10px 0;
+        #main-navigation {
+            @include lg-down {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 270px;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                z-index: 999;
+                margin-right: -270px;
+                background-color: $color-base;
+                @include transition(all 0.35s ease);
+                ul {
+                    margin-top: 20px;
+                    li {
+                        display: block !important;
+                    }
+                }
+                &.active {
+                    margin-right: 0;
+                }
+            }
+            @include lg-up {
+                display: inline-block;
+                float: left;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    margin: 0 5px;
+                    &.active {
+                        a {
+                            color: $color-main;
+                        }
+                    }
+                    a {
+                        color: #fff;
+                        display: inline-block;
+                        padding: 10px 15px;
+                        text-transform: uppercase;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        @include transition(all 0.35s linear);
+                        &:hover,
+                        &:focus {
+                            color: $color-main;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+        #getQuote {
+            float: right;
+            display: inline-block;
+            color: #fff;
+            margin: 5px 0;
+            padding: 5px 10px 5px 0px;
+            border-right: 1px solid rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            @include transition(all 0.35s linear);
+            @include lg-up {
+                padding: 5px 0 5px 15px;
+                border-left: 1px solid rgba($color-white, 0.75);
+                border-right: 0;
+            }
+            &:hover,
+            &:focus {
+                color: $color-main;
+                text-decoration: none;
+            }
+            i {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+footer {
+    @extend .relative-box;
+    background-color: $color-base;
+    margin-top: 100px;
+    padding: 50px 0 0;
+    .footer-logo{
+        display: inline-block;
+        position: absolute;
+        top:0;
+        left: 50%;
+        z-index: 9;
+        @include transform(translate(-50%, -50%));
+        width: 120px;
+        img{
+            width: 100%;
+        }
+    }
+    #footer{
+        
+    }
+    #copyrights {
+        @extend .relative-box;
+        background-color: darken($color-base, 5%);
+        padding: 15px 0;
+        color: $color-white;
+        text-align: center;
+        a {
+            color: $color-white;
+            @include transition(all 0.35s linear);
+            &:hover,
+            &:focus {
+                color: $color-main;
+                text-decoration: none;
+            }
+        }
+    }
+}

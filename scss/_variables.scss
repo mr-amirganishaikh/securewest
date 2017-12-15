@@ -1,0 +1,44 @@
+/* All global and reusable variables */
+
+// Colors
+$color-base: #333333; // Define base or support color for website
+$color-main: #EC3237; // Define main color for website
+$color-special-gray: #E0E0E0; // Third level color
+$color-grey-text: #a5a5a5; // Grey Text color
+$color-black: #000000;
+$color-white: #ffffff;
+$social-colors: ( "twitter": #00aced, "facebook": #3b5998, "googleplus": #dd4b39, "pinterest": #cb2027, "linkedin": #007bb6, "youtube": #bb0000, "vimeo": #1ab7ea, "tumblr": #32506d, "instagram": #bc2a8d, "flickr": #ff0084, "dribbble": #ea4c89, "quora": #a82400, "foursquare": #0072b1, "wordpress": #21759b, "stumbleupon": #EB4823, "yahoo": #7B0099, "blogger": #fb8f3d, "soundcloud": #ff3a00);
+
+// Generating background & text color clases for social
+@each $color,
+$color_value in $social-colors {
+    .#{$color} {
+        background-color: $color_value !important;
+    }
+    .#{$color}-text {
+        color: $color_value !important;
+    }
+}
+
+// Fonts
+$font-primary: 'Roboto', sans-serif;
+.font-primary {
+    font-family: $font-primary !important;
+}
+
+/*$font-secondary: 'Padauk', sans-serif;
+.font-secondary {
+    font-family: $font-secondary !important;
+}*/
+
+$font-secondary: 'Open Sans', sans-serif;
+.font-secondary {
+    font-family: $font-secondary !important;
+}
+
+.font-awesome {
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
